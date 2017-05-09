@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package funding;
 
-/**
- *
- * @author usuario
- */
 public class Monedero {
+    private double dinero;
+
+    public Monedero() {
+        dinero = .0;
+    }
     
+    public Monedero(double dinero) {
+        this.dinero = dinero;
+    }
+    
+    public void setDinero(double dinero) {
+        this.dinero = dinero;
+    }
+
+    public double mostrarSaldo() {
+        return dinero;
+    }
+    
+    public void aumentarSaldo(double dinero){
+        this.dinero += dinero;
+    }
+    
+    public void disminuirSaldo() {
+        this.dinero -= dinero;
+    }
 }
