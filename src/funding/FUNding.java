@@ -1,5 +1,6 @@
 package funding;
 
+import gui.MenuPanel;
 import gui.Panel;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -69,7 +70,6 @@ public class FUNding {
         usuario3.crear(proye4);
         usuario3.crear(proye5);
 
-        FileWriter fw;
         BufferedWriter bw;
         String line;
         
@@ -105,13 +105,29 @@ public class FUNding {
         proyecto2.addAll(proyecto3);
 
         for (Usuario usuarioList1 : usuarioList) {
-            line = usuarioList1.get
+            if(usuarioList1 instanceof Promotor) {
+                for(int i = 0; i < ((Promotor) usuarioList1).getProyectoList().size(); i++) {
+                    line = Integer.toString(((Promotor) usuarioList1).getProyecto(i).getId()) 
+                            + ":" + ((Promotor) usuarioList1).getProyecto(i).getTitulo()
+                            + ":" + ((Promotor) usuarioList1).getProyecto(i).getDescripción()
+                            + ":" + 
+                            ((Promotor) usuarioList1).getProyecto(i).getFechaInicio().getTime().toString()
+                            + ":" + 
+                            ((Promotor) usuarioList1).getProyecto(i).getFechaLimite().getTime().toString()
+                            + ":" + ((Promotor) usuarioList1).getProyecto(i).getBolsa().mostrarFondo()
+                            + ":" + ((Promotor) usuarioList1).getProyecto(i).getEstado();
+                    bw.write(line);
+                    bw.newLine();
+                }
+            }
         }
         
         bw.close();
         
-        Panel panel = new Panel();
+        MenuPanel panel = new MenuPanel();
         panel.setVisible(true);
+        
+        
     }
 
 }

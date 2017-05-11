@@ -127,34 +127,34 @@ public class Panel extends javax.swing.JFrame {
             BufferedReader br;
             String line;
 
-            br = new BufferedReader(new FileReader("proyectos.txt"));
+            br = new BufferedReader(new FileReader("usuarios.txt"));
 
             try {
                 while ((line = br.readLine()) != null) {
                     String[] fields = line.split(":");
-                    if (fields[0].equals(user)) {
-                        if (fields[1].equals(pass)) {
-                            if (rol.equals("Promotor") && fields[2].equals(rol)) {
+                    if (fields[1].equals(user)) {
+                        if (fields[2].equals(pass)) {
+                            if (rol.equals("Promotor") && fields[3].equals(rol)) {
                                 System.out.println("Contraseña correcta : Promotor");
                                 MenuPanel panel2 = new MenuPanel();
-                                panel2.setTitle(rol + " : " + fields[3]);
+                                panel2.setTitle(rol + " : " + fields[4]);
                                 panel2.setVisible(true);
                                 this.dispose();
                                 break;
                             } else if (rol.equals("Gestor") && fields[2].equals(rol)) {
                                 System.out.println("Contraseña correcta : Gestor");
                                 MenuPanel panel2 = new MenuPanel();
-                                panel2.setTitle(rol + " : " + fields[3]);
+                                panel2.setTitle(rol + " : " + fields[4]);
                                 panel2.setVisible(true);
                                 dispose();
                             }
                         } 
-                        if (!fields[1].equals(pass)) {
-                            if (rol.equals("Promotor") && fields[2].equals(rol)) {
+                        if (!fields[2].equals(pass)) {
+                            if (rol.equals("Promotor") && fields[3].equals(rol)) {
                                 System.out.println("Contraseña incorrecta");
                                 JOptionPane.showMessageDialog(new JFrame(), "Contraseña incorrecta");
                                 break;
-                            } else if (rol.equals("Gestor") && fields[2].equals(rol)) {
+                            } else if (rol.equals("Gestor") && fields[3].equals(rol)) {
                                 System.out.println("Contraseña incorrecta");
                                 JOptionPane.showMessageDialog(new JFrame(), "Contraseña incorrecta");
                                 break;

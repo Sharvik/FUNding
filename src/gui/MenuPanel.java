@@ -10,8 +10,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import javax.swing.JList;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +25,48 @@ public class MenuPanel extends javax.swing.JFrame {
      * Creates new form MenuPanel
      */
     public MenuPanel() {
+        userArgs = new ArrayList<>();
+        proyArgs = new ArrayList<>();
+        
+        BufferedReader br;
+        String line;
+        
+        try {
+            br = new BufferedReader(new FileReader("usuarios.txt"));
+            while((line = br.readLine()) != null) {
+                for (String[] arg : userArgs) {
+                    arg = line.split(":");
+                    System.out.println(arg[0]);
+                }
+            }
+            
+            br.close();
+            
+            
+            br = new BufferedReader(new FileReader("proyectos.txt"));
+            
+            /*while((line = br.readLine()) != null)
+                for (String[] arg : proyArgs)
+                    arg = line.split(":");
+                    */
+            br.close();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        System.out.println(proyArgs.get(0)[0]);
+        Object[] column = new Object[4];
+        for (String[] proyArg : proyArgs) {
+            for (String string : proyArg) {
+                System.out.println(string);
+            }
+            DefaultTableModel model = (DefaultTableModel) proyTab.getModel();
+            model.addRow(column);
+        }
+        
         initComponents();
     }
 
@@ -42,15 +86,10 @@ public class MenuPanel extends javax.swing.JFrame {
         BagTitle = new javax.swing.JLabel();
         bagLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        proyTab = new javax.swing.JTable();
         mostrarB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                formFocusGained(evt);
-            }
-        });
 
         cobrarAllB.setText("Cobrar todo");
         cobrarAllB.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +117,7 @@ public class MenuPanel extends javax.swing.JFrame {
         bagLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bagLabel.setText("0");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        proyTab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -97,7 +136,7 @@ public class MenuPanel extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(proyTab);
 
         mostrarB.setText("Mostrar");
         mostrarB.addActionListener(new java.awt.event.ActionListener() {
@@ -163,41 +202,18 @@ public class MenuPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cobrarBActionPerformed
 
-    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        FileReader fr = null;
-        try {
-            fr = new FileReader("proyectos.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            String[] items;
-            int i = 0;
-            try {
-                while(br.readLine() != null) i++;
-            } catch (IOException ex) {
-                Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            items = new String[i];
-            i = 0;
-            while((line = br.readLine()) != null) {
-                items[0] = line.split(":")[5];
-                System.out.println(items[i]);
-                i++;
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                fr.close();
-            } catch (IOException ex) {
-                Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_formFocusGained
-
     private void mostrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBActionPerformed
-        
+        System.out.println("Mostrar");
+        System.out.println(proyArgs.get(0)[0]);
+        Object[] column = new Object[4];
+        for (String[] proyArg : proyArgs) {
+            for (String string : proyArg) {
+                System.out.println(string);
+            }
+            DefaultTableModel model = (DefaultTableModel) proyTab.getModel();
+            model.addRow(column);
+        }
+
     }//GEN-LAST:event_mostrarBActionPerformed
 
     private void cobrarAllBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobrarAllBActionPerformed
@@ -240,7 +256,8 @@ public class MenuPanel extends javax.swing.JFrame {
             }
         });
     }
-
+    private ArrayList<String[]> userArgs;
+    private ArrayList<String[]> proyArgs;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BagTitle;
     private javax.swing.JLabel amountLabel;
@@ -249,7 +266,7 @@ public class MenuPanel extends javax.swing.JFrame {
     private javax.swing.JButton cobrarAllB;
     private javax.swing.JButton cobrarB;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton mostrarB;
+    private javax.swing.JTable proyTab;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,7 +25,7 @@ public class Proyecto {
         this.descripción = descripción;
         this.fechaInicio = GregorianCalendar.getInstance();
         this.fechaLimite = fechaLimite;
-        this.estado = EstadoProyecto.INICIADO;
+        this.estado = estado;
         this.bolsa = bolsa;
     }
     
@@ -34,32 +34,11 @@ public class Proyecto {
         this.id = id;
         this.titulo = titulo;
         this.descripción = descripción;
+        this.fechaInicio = GregorianCalendar.getInstance();
         this.fechaLimite = fechaLimite;
-        this.estado = EstadoProyecto.INICIADO;
+        this.estado = estado;
         this.bolsa = new Bolsa();
     }
-
-    /*private String leerProyecto() throws FileNotFoundException, IOException {
-        String s1;
-        BufferedReader br = new BufferedReader(new FileReader("MyFileReader.txt"));
-        while ((s1 = br.readLine()) != null && s1.length() != 0)
-            s1 = br.readLine();
-        return s1;
-    }*/
-
-    /*private String leerCampos(String linea) {
-        StringTokenizer st = new StringTokenizer(linea, ":");
-
-        while (st.hasMoreTokens()) {
-
-            id = Integer.parseInt(st.nextToken());
-            titulo = st.nextToken();
-            descripción = st.nextToken();
-            fechaInicio = st.nextToken();
-            fechaLimite = st.nextToken();
-            //estado = st.nextToken();
-        }
-    }*/
 
     public int getId() {
         return id;
@@ -128,4 +107,5 @@ public class Proyecto {
         dinero.aumentarSaldo(bolsa.porcentajePromotor());
         usuario.ingresar(dinero);
     }
+    
 }
