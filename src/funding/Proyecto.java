@@ -26,7 +26,7 @@ public class Proyecto {
         this.fechaInicio = GregorianCalendar.getInstance();
         this.fechaLimite = fechaLimite;
         this.estado = EstadoProyecto.INICIADO;
-        this.bolsa = new Bolsa();
+        this.bolsa = bolsa;
     }
     
     public Proyecto(int id, String titulo, String descripción, 

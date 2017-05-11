@@ -40,6 +40,7 @@ public class FUNding {
         Bolsa bolsa1 = new Bolsa(2000.01);
         Bolsa bolsa2 = new Bolsa(-15.05);
         Bolsa bolsa3 = new Bolsa(0.55);
+        
 
         Proyecto proye1 = new Proyecto(0, "Nuevo proyecto", "Nueva descripción",
                 hoy, EstadoProyecto.INICIADO);
@@ -93,6 +94,11 @@ public class FUNding {
             bw.write(line);
             bw.newLine();
         }
+        
+        for (int i = 0; i < 10; i++) {
+            
+        }
+        
         bw.close();
         Panel panel = new Panel();
         panel.setVisible(true);

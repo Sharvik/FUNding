@@ -1,2 +1,0 @@
-John:Cena:Promotor:01:90.01
-Pepe:Cena:Gestor:02:200.12

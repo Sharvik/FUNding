@@ -1,5 +1,5 @@
 repartoostias@gmail.com:ironfist:Promotor:John Cena:312.09:Nuevo proyecto:Nueva descripción:0.0:INICIADO
 repartoostias@gmail.com:ironfist:Promotor:John Cena:312.09:Nuevo proyecto 2:Nueva descripción 2:0.0:INICIADO
-repartoostias@gmail.com:ironfist:Promotor:John Cena:312.09:Nuevo proyecto 3:Nueva descripción 3:0.0:INICIADO
-cantofatal@gmail.com:promotePromotor:Pepe Benavente:0.0:Nuevo proyecto 4:Nueva descripción 4:0.0:INICIADO
-cantofatal@gmail.com:promotePromotor:Pepe Benavente:0.0:Nuevo proyecto 5:Nueva descripción 5:0.0:INICIADO
+repartoostias@gmail.com:ironfist:Promotor:John Cena:312.09:Nuevo proyecto 3:Nueva descripción 3:2000.01:INICIADO
+cantofatal@gmail.com:promotePromotor:Pepe Benavente:0.0:Nuevo proyecto 4:Nueva descripción 4:-15.05:INICIADO
+cantofatal@gmail.com:promotePromotor:Pepe Benavente:0.0:Nuevo proyecto 5:Nueva descripción 5:0.55:INICIADO
