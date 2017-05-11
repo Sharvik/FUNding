@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -143,6 +144,7 @@ public class Panel extends javax.swing.JFrame {
                             } else if (rol.equals("Gestor") && fields[2].equals(rol)) {
                                 System.out.println("Contraseña correcta : Gestor");
                                 MenuPanel panel2 = new MenuPanel();
+                                panel2.setTitle(rol + " : " + fields[3]);
                                 panel2.setVisible(true);
                                 dispose();
                             }

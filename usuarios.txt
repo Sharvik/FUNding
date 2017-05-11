@@ -1,0 +1,3 @@
+1:repartoostias@gmail.com:ironfist:Promotor:John Cena:45:alienigena:banco1:312.09
+2:tugestor@gmail.com:manageme:Gestor:Mark Zuckerberg Jr.:65:albano:banco2:7012.19
+3:cantofatal@gmail.com:promote:Promotor:Pepe Benavente:42:francés:banco3:0.0

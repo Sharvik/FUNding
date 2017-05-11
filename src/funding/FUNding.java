@@ -1,7 +1,9 @@
 package funding;
 
 import gui.Panel;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ public class FUNding {
         ArrayList<Proyecto> proyecto1 = new ArrayList<>();
         ArrayList<Proyecto> proyecto2 = new ArrayList<>();
         ArrayList<Proyecto> proyecto3 = new ArrayList<>();
+        
+        ArrayList<Usuario> usuarioList = new ArrayList<>();
 
         Promotor usuario1 = new Promotor("1", "John Cena", 45, "repartoostias@gmail.com",
                 "alienigena", "ironfist", "banco1", monedero1, 312.09);
@@ -25,7 +29,12 @@ public class FUNding {
                 "albano", "manageme", "banco2", monedero2, 7012.19);
         Promotor usuario3 = new Promotor("3", "Pepe Benavente", 42, "cantofatal@gmail.com",
                 "francés", "promote", "banco3", monedero3, 0.0);
-
+        
+        usuarioList.add(usuario1);
+        usuarioList.add(usuario2);
+        usuarioList.add(usuario3);
+        
+        
         Calendar hoy = GregorianCalendar.getInstance();
         Calendar c1 = GregorianCalendar.getInstance();
         Calendar c2 = GregorianCalendar.getInstance();
@@ -63,7 +72,31 @@ public class FUNding {
         FileWriter fw;
         BufferedWriter bw;
         String line;
-
+        
+        bw = new BufferedWriter(new FileWriter("usuarios.txt"));
+        
+        for (Usuario usuarioList1 : usuarioList) {
+            String rol;
+            if ((Object) usuarioList1 instanceof Promotor) {
+                rol = "Promotor";
+            } else if ((Object) usuarioList1 instanceof Gestor) {
+                rol = "Gestor";
+            } else {
+                rol = "Inversor";
+            }
+            line = usuarioList1.getDni() + ":" + usuarioList1.getEmail() 
+                    + ":" + usuarioList1.getContraseña() 
+                    + ":" + rol + ":" + usuarioList1.getNombre() 
+                    + ":" + usuarioList1.getEdad() 
+                    + ":" + usuarioList1.getNacionalidad() 
+                    + ":" + usuarioList1.getCuentaBancaria() 
+                    + ":" + usuarioList1.getDinero().mostrarSaldo();
+            bw.write(line);
+            bw.newLine();
+        }
+        
+        line = "";
+        bw.close();
         bw = new BufferedWriter(new FileWriter("proyectos.txt"));
 
         proyecto1 = usuario1.getProyectoList();
@@ -71,35 +104,12 @@ public class FUNding {
         proyecto2.addAll(proyecto1);
         proyecto2.addAll(proyecto3);
 
-        for (int i = 0; i < proyecto1.size(); i++) {
-            line = usuario1.getEmail() + ":" + usuario1.getContraseña()
-                    + ":"+"Promotor"+":" + usuario1.getNombre() + ":"
-                    + usuario1.getDinero().mostrarSaldo() + ":"
-                    + usuario1.getProyecto(i).getTitulo() + ":"
-                    + usuario1.getProyecto(i).getDescripción() + ":" 
-                    + usuario1.getProyecto(i).getBolsa().mostrarFondo() + ":"
-                    + usuario1.getProyecto(i).getEstado();
-            bw.write(line);
-            bw.newLine();
-        }
-        
-        for (int i = 0; i < proyecto3.size(); i++) {
-            line = usuario3.getEmail() + ":" + usuario3.getContraseña()
-                    + "Promotor"+ ":" + usuario3.getNombre() + ":"
-                    + usuario3.getDinero().mostrarSaldo() + ":"
-                    + usuario3.getProyecto(i).getTitulo() + ":"
-                    + usuario3.getProyecto(i).getDescripción() + ":" 
-                    + usuario3.getProyecto(i).getBolsa().mostrarFondo() + ":"
-                    + usuario3.getProyecto(i).getEstado();
-            bw.write(line);
-            bw.newLine();
-        }
-        
-        for (int i = 0; i < 10; i++) {
-            
+        for (Usuario usuarioList1 : usuarioList) {
+            line = usuarioList1.get
         }
         
         bw.close();
+        
         Panel panel = new Panel();
         panel.setVisible(true);
     }

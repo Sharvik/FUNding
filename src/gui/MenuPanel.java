@@ -35,12 +35,15 @@ public class MenuPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        allButton = new javax.swing.JButton();
-        cobrarButton = new javax.swing.JButton();
+        cobrarAllB = new javax.swing.JButton();
+        cobrarB = new javax.swing.JButton();
         amountTitle = new javax.swing.JLabel();
         amountLabel = new javax.swing.JLabel();
         BagTitle = new javax.swing.JLabel();
         bagLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        mostrarB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addFocusListener(new java.awt.event.FocusAdapter() {
@@ -49,12 +52,17 @@ public class MenuPanel extends javax.swing.JFrame {
             }
         });
 
-        allButton.setText("Cobrar todo");
-
-        cobrarButton.setText("Cobrar");
-        cobrarButton.addActionListener(new java.awt.event.ActionListener() {
+        cobrarAllB.setText("Cobrar todo");
+        cobrarAllB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cobrarButtonActionPerformed(evt);
+                cobrarAllBActionPerformed(evt);
+            }
+        });
+
+        cobrarB.setText("Cobrar");
+        cobrarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cobrarBActionPerformed(evt);
             }
         });
 
@@ -70,12 +78,40 @@ public class MenuPanel extends javax.swing.JFrame {
         bagLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bagLabel.setText("0");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Proyecto", "Fondo", "¿Cobrar?"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        mostrarB.setText("Mostrar");
+        mostrarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(amountTitle)
@@ -85,36 +121,47 @@ public class MenuPanel extends javax.swing.JFrame {
                         .addComponent(BagTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bagLabel)))
-                .addGap(37, 37, 37)
-                .addComponent(cobrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(allButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(mostrarB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cobrarB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cobrarAllB, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(amountTitle)
+                            .addComponent(amountLabel))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BagTitle)
+                            .addComponent(bagLabel))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(amountTitle)
-                    .addComponent(amountLabel))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BagTitle)
-                    .addComponent(bagLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(allButton)
-                    .addComponent(cobrarButton))
-                .addContainerGap(108, Short.MAX_VALUE))
+                    .addComponent(cobrarAllB)
+                    .addComponent(cobrarB)
+                    .addComponent(mostrarB))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cobrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobrarButtonActionPerformed
+    private void cobrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobrarBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cobrarButtonActionPerformed
+    }//GEN-LAST:event_cobrarBActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
         FileReader fr = null;
@@ -148,6 +195,14 @@ public class MenuPanel extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formFocusGained
+
+    private void mostrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBActionPerformed
+        
+    }//GEN-LAST:event_mostrarBActionPerformed
+
+    private void cobrarAllBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobrarAllBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cobrarAllBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,10 +243,13 @@ public class MenuPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BagTitle;
-    private javax.swing.JButton allButton;
     private javax.swing.JLabel amountLabel;
     private javax.swing.JLabel amountTitle;
     private javax.swing.JLabel bagLabel;
-    private javax.swing.JButton cobrarButton;
+    private javax.swing.JButton cobrarAllB;
+    private javax.swing.JButton cobrarB;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton mostrarB;
     // End of variables declaration//GEN-END:variables
 }
